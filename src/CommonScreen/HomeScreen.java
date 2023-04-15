@@ -7,10 +7,12 @@ import Common.Constant;
 import Common.Utilities;
 
 public class HomeScreen {
-	public static String loginLinkXpath 			= "//*[@class='btn btn-login-register']";
+	public static String loginLinkXpath 			= "//*[@class='link-account']";
 	public static String registerLinkXpath 			= "//*[@class='em-register-link']";
-	public static String usernameLinkXpath 			= "//*[contains(text(),'" + Constant.BASE_USERNAME + "')]";
-	public static String logoutLinkXpath 			= "//header/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/a[7]";
+	public static String usernameLinkXpath 			= "//a[contains(text(),'" + Constant.BASE_USERNAME + "')]";
+	public static String logoutLinkXpath 			= "//a[contains(text(),'Đăng xuất')]";
+	public static String changePwdLinkXpath 		= "//a[contains(text(),'Đổi mật khẩu')]";
+	
 	public static String contactLinkXpath 			= "//a[contains(text(),'Góp ý, phản hồi')]";
 	public static String keywordTxtXpath 			= "//*[@class='keyword']";
 	public static String searchIconXpath 			= "//*[@class='btn-search-func']";
@@ -23,12 +25,7 @@ public class HomeScreen {
 	public static String registerSuccessMsg 		= "Cảm ơn bạn đã đăng ký nhận thông báo";
 	public static String invalidEmailMsg 			= "Email không đúng định dạng!";
 	public static String emptyEmailMsg 				= "Vui lòng nhập email của bạn";
-	
-	public static String dropdownMenuBtnID 			= "dropdownMenuButton";
-	public static String accountMntLinkXpath 		= "//header/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/a[1]";
-	public static String changePasswordLinkXpath 	= "//h2[contains(text(),'Đổi mật khẩu')]";
-	
-	
+		
 	public static String categoryProductLinkXpath 	= "//div[contains(@class,'category-products-item')][INDEX]";
 	public static String productLinkXpath 			= "//body/div[4]/div[3]/div[2]/div[2]/div[INDEX]/div[1]";
 	public static String addToCartBtnXpath 			= "//body/div[4]/div[1]/div[2]/div[2]/div[5]/button[1]";
@@ -70,5 +67,10 @@ public class HomeScreen {
 		}
 		Utilities.clickObscuredElement(driver, registerBtnXpath, msgOnDlgXpath, Constant.WAIT_ELEMENT_EXIST);
 		Utilities.assertTextValueVisible(driver, By.xpath(msgOnDlgXpath), expectErrMsg);
+	}
+	
+	public static void logout(WebDriver driver) {
+		Utilities.clickObscuredElement(driver, HomeScreen.usernameLinkXpath, HomeScreen.logoutLinkXpath, Constant.WAIT_ELEMENT_EXIST);
+		Utilities.clickObscuredElement(driver, HomeScreen.logoutLinkXpath, HomeScreen.loginLinkXpath, Constant.WAIT_ELEMENT_EXIST);
 	}
 }

@@ -26,10 +26,14 @@ public abstract class Initialization {
 	
 	@AfterMethod(alwaysRun = true) 
 	public void afterMethod(ITestResult result, Method method){
+		Utilities.captureScreen(driver, method.getName());
 		if (result.getStatus() == ITestResult.FAILURE || result.getStatus() == ITestResult.SKIP) {
 			Utilities.printWithTestID(result.toString(), Level.ERROR);
 		}
-		Utilities.captureScreen(driver, method.getName());
 	}
 	
+	@AfterClass(alwaysRun = true)
+	public void afterClass() throws Exception{	
+		Utilities.closeDriver(driver);
+	}
 }

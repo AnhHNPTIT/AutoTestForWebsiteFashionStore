@@ -4,14 +4,18 @@
    <test name="Test1" group-by-instances="true" preserve-order="true">
     <parameter name = "browser" value = "Chrome"/>  
     <classes>
+	<!--         <class name = "TestSuite.Register"/>   -->
     <!--       <class name = "TestSuite.Login"/>  -->
+    <!--       <class name = "TestSuite.Logout"/>  -->
+     <!--         <class name = "TestSuite.ChangePassword"/>   -->
+     
     <!--         <class name = "TestSuite.Search"/>   -->
     <!--         <class name = "TestSuite.Contact"/>   -->
-    <!--         <class name = "TestSuite.Register"/>   -->
-    <!--         <class name = "TestSuite.ChangePassword"/>   -->
+
+   
     <!--         <class name = "TestSuite.UpdateAccount"/>   -->
     <!--         <class name = "TestSuite.DetailInformation"/>   -->
-   <class name = "TestSuite.Register"/>  
+   <class name = "TestSuite.ChangePassword"/>  
     </classes>
   </test> <!-- Test -->
  
