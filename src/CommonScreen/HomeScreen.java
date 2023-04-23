@@ -9,30 +9,23 @@ import Common.Utilities;
 public class HomeScreen {
 	public static String loginLinkXpath 			= "//*[@class='link-account']";
 	public static String registerLinkXpath 			= "//*[@class='em-register-link']";
+	public static String contactLinkXpath 			= "//*[text()=' Liên hệ ']";
+	
 	public static String usernameLinkXpath 			= "//a[contains(text(),'" + Constant.BASE_USERNAME + "')]";
 	public static String logoutLinkXpath 			= "//a[contains(text(),'Đăng xuất')]";
 	public static String changePwdLinkXpath 		= "//a[contains(text(),'Đổi mật khẩu')]";
 	
-	public static String contactLinkXpath 			= "//a[contains(text(),'Góp ý, phản hồi')]";
-	public static String keywordTxtXpath 			= "//*[@class='keyword']";
-	public static String searchIconXpath 			= "//*[@class='btn-search-func']";
-	public static String titleSearchLbXpath 		= "//h1[contains(text(),'#KEYWORD')]";
-	public static String searchResultDivXpath 		= "//*[@class='products-item-content']";
+	public static String searchIconXpath 			= "//a[@class='em-search-icon']";
+	public static String searchTxtID				= "search";
+	public static String searchBtnXpath 			= "(//button[@title='Search'])[2]";
+	public static String titleSearchLbXpath 		= "//p[contains(text(),'Kết quả tìm kiếm cho')]";
+	public static String searchResultDivXpath 		= "//div[@class='product-item']";
 	
-	public static String msgOnDlgXpath 				= "//div[contains(@class,'swal-text')]";
-	public static String emailTxtID 				= "email-input";
-	public static String registerBtnXpath 			= "//button[contains(text(),'Đăng ký')]";
-	public static String registerSuccessMsg 		= "Cảm ơn bạn đã đăng ký nhận thông báo";
-	public static String invalidEmailMsg 			= "Email không đúng định dạng!";
-	public static String emptyEmailMsg 				= "Vui lòng nhập email của bạn";
-		
-	public static String categoryProductLinkXpath 	= "//div[contains(@class,'category-products-item')][INDEX]";
-	public static String productLinkXpath 			= "//body/div[4]/div[3]/div[2]/div[2]/div[INDEX]/div[1]";
-	public static String addToCartBtnXpath 			= "//body/div[4]/div[1]/div[2]/div[2]/div[5]/button[1]";
-	public static String orderNowBtnXpath 			= "//button[contains(text(),'Mua ngay')]";
-	public static String orderBtnXpath 				= "//button[contains(text(),'Đặt hàng')]";
-	public static String quantityProductLbXpath 	= "//span[contains(@class,'bag-amount')]";
+	public static String noResultMsg 				= "              Rất tiếc! Không có sản phẩm nào được tìm thấy!         ";
+	public static String noResultMsgXpath 			= "//p[text()='" + noResultMsg + "']";
 	
+	public static String productLinkXpath 			= "(//div[@class='product-shop-top'])[1]";
+
 	public static WebDriver openScreen(String browser) {
 		WebDriver driver = null;
 		if (!browser.isEmpty()) {
@@ -43,10 +36,19 @@ public class HomeScreen {
 		}
 		return driver;
 	}
+	
+	public static WebDriver openScreenWithoutLoginWithoutLogin(String browser) {
+		WebDriver driver = null;
+		if (!browser.isEmpty()) {
+			driver = Utilities.getDriver(browser);
+			driver.get(Constant.BASE_URL);
+		}
+		return driver;
+	}
 
 	public static void search(WebDriver driver, String keyword, boolean isSuccess) {
-		Utilities.inputValueAndValidate(driver, By.xpath(keywordTxtXpath), keyword, keyword);
-		Utilities.clickObscuredElement(driver, searchIconXpath, titleSearchLbXpath.replace("KEYWORD", keyword), Constant.WAIT_ELEMENT_EXIST);
+		Utilities.inputValueAndValidate(driver, By.id(searchTxtID), keyword, keyword);
+		Utilities.clickObscuredElement(driver, searchBtnXpath, titleSearchLbXpath, Constant.WAIT_ELEMENT_EXIST);
 		int countSearchResult =  Utilities.getXpathCount(driver, searchResultDivXpath);
 		if (isSuccess) {
 			if (countSearchResult == 0) {
@@ -54,19 +56,8 @@ public class HomeScreen {
 			}
 		} 
 		else {
-			Utilities.assertString("0",Integer.toString(countSearchResult));
+			Utilities.assertString("0", Integer.toString(countSearchResult));
 		}
-	}
-	
-	public static void register(WebDriver driver, String email, String expectErrMsg) {
-		if (email.lastIndexOf(" ") != email.length() - 1) {
-			Utilities.inputValueAndValidate(driver, By.id(emailTxtID), email, email);
-		}
-		else {
-			Utilities.inputValueAndValidate(driver, By.id(emailTxtID), email, email.replace(" ", ""));
-		}
-		Utilities.clickObscuredElement(driver, registerBtnXpath, msgOnDlgXpath, Constant.WAIT_ELEMENT_EXIST);
-		Utilities.assertTextValueVisible(driver, By.xpath(msgOnDlgXpath), expectErrMsg);
 	}
 	
 	public static void logout(WebDriver driver) {

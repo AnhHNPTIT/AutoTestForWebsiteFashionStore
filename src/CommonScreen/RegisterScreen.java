@@ -36,7 +36,7 @@ public class RegisterScreen {
 		Utilities.waitForElementVisibility(driver, By.id(phoneTxtID));
 		Utilities.inputValueAndValidate(driver, By.id(phoneTxtID), phone, phone);	
 		if (expectErrMsg == "") {
-			Utilities.clickObscuredElement(driver, By.xpath(registerBtnXpath), By.xpath(UpdateAccountScreen.titleScreenXpath), Constant.WAIT_ELEMENT_EXIST);
+			Utilities.clickObscuredElement(driver, By.xpath(registerBtnXpath), By.xpath(AccountInfoScreen.titleScreenXpath), Constant.WAIT_ELEMENT_EXIST);
 		}
 		else if (expectErrMsg == registeredPhoneMsg) {
 			Utilities.clickObscuredElement(driver, By.xpath(registerBtnXpath), By.xpath(unsuccessMsgXpath), Constant.WAIT_ELEMENT_EXIST);

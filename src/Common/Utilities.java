@@ -602,7 +602,7 @@ public class Utilities {
 	public static void refreshScreen(WebDriver driver) {
 //		driver.findElement(By.xpath("//body")).sendKeys(Keys.F5);
 		driver.get(driver.getCurrentUrl());
-//		Utilities.wait(Constant.WAIT_REFRESH_SCREEN);
+		Utilities.wait(Constant.WAIT_REFRESH_SCREEN);
 	}
 
 	public static int getXpathCount(WebDriver driver, String locator) {

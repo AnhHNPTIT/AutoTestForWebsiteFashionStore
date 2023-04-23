@@ -8,14 +8,14 @@
     <!--       <class name = "TestSuite.Login"/>  -->
     <!--       <class name = "TestSuite.Logout"/>  -->
      <!--         <class name = "TestSuite.ChangePassword"/>   -->
-     
+    <!--         <class name = "TestSuite.Contact"/>   -->       
     <!--         <class name = "TestSuite.Search"/>   -->
-    <!--         <class name = "TestSuite.Contact"/>   -->
+	<!--         <class name = "TestSuite.ViewProductDetail"/>   -->
 
    
-    <!--         <class name = "TestSuite.UpdateAccount"/>   -->
+    
     <!--         <class name = "TestSuite.DetailInformation"/>   -->
-   <class name = "TestSuite.ChangePassword"/>  
+   <class name = "TestSuite.ViewProductDetail"/>  
     </classes>
   </test> <!-- Test -->
  

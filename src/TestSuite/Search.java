@@ -3,61 +3,54 @@ package TestSuite;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
-import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import Common.Constant;
 import Common.Initialization;
 import Common.Utilities;
 import CommonScreen.HomeScreen;
 
-
-public class Search extends Initialization{	
+public class Search extends Initialization {
 	@BeforeClass()
-	public void setUpClass() throws Exception{	
-		driver = HomeScreen.openScreen(browser);
+	public void setUpClass() throws Exception {
+		driver = HomeScreen.openScreenWithoutLoginWithoutLogin(browser);
 	}
-	
+
 	@BeforeMethod()
-	public void setUpMethod(Method method) throws Exception{	
+	public void setUpMethod(Method method) throws Exception {
 		Utilities.testID = method.getName();
+		Utilities.clickObscuredElement(driver, HomeScreen.searchIconXpath, HomeScreen.searchBtnXpath, Constant.WAIT_ELEMENT_EXIST);
 	}
-		
-	@Test()
-	public void MODULE2_01() throws IOException{
-		HomeScreen.search(driver, "Xe đạp địa hình MTB Giant LIV TEMPT 3 29 inch Size M", true);
-	}	
 
 	@Test()
-	public void MODULE2_02() throws IOException{
-		HomeScreen.search(driver, "demo test", false);
-	}	
-	
-	@Test()
-	public void MODULE2_03() throws IOException{
-		HomeScreen.search(driver, "xe đạp thể thao", true);
-	}	
-	
-	@Test()
-	public void MODULE2_04() throws IOException{
-		HomeScreen.search(driver, "Xe đạp đua Sava Pro 6.0", true);
-	}	
+	public void ITS_05_01() throws IOException {
+		HomeScreen.search(driver, "", true);
+	}
 
 	@Test()
-	public void MODULE2_05() throws IOException{
-		HomeScreen.search(driver, "XE ĐẠP ĐUA SAVA PRO 6.0", true);
-	}	
-		
-	@AfterMethod()  
-	public void tearDownMethod(ITestResult result, Method method){
-		afterMethod(result, method);
+	public void ITS_05_02() throws IOException {
+		HomeScreen.search(driver, "          ", true);
+	}
+
+	@Test()
+	public void ITS_05_03() throws IOException {
+		HomeScreen.search(driver, "ÁO KHOÁC PHAO CỔ MŨ VIỀN LÔNG", true);
+	}
+
+	@Test()
+	public void ITS_05_04() throws IOException {
+		HomeScreen.search(driver, "ÁO KHOÁC", true);
+	}
+
+	@Test()
+	public void ITS_05_05() throws IOException {
+		HomeScreen.search(driver, "test demo", false);
 	}
 	
-	@AfterClass()
-	public void tearDownClass() throws Exception{	
-		Utilities.closeDriver(driver);
+	@Test()
+	public void ITS_05_06() throws IOException {
+		HomeScreen.search(driver, "áo khoác", true);
 	}
 }
