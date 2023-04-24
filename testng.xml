@@ -5,17 +5,16 @@
     <parameter name = "browser" value = "Chrome"/>  
     <classes>
 	<!--         <class name = "TestSuite.Register"/>   -->
-    <!--       <class name = "TestSuite.Login"/>  -->
-    <!--       <class name = "TestSuite.Logout"/>  -->
-     <!--         <class name = "TestSuite.ChangePassword"/>   -->
+    <!--         <class name = "TestSuite.Login"/>  -->
+    <!--         <class name = "TestSuite.Logout"/>  -->
+    <!--         <class name = "TestSuite.ChangePassword"/>   -->
     <!--         <class name = "TestSuite.Contact"/>   -->       
     <!--         <class name = "TestSuite.Search"/>   -->
 	<!--         <class name = "TestSuite.ViewProductDetail"/>   -->
-
-   
-    
-    <!--         <class name = "TestSuite.DetailInformation"/>   -->
-   <class name = "TestSuite.ViewProductDetail"/>  
+	<!--         <class name = "TestSuite.AddToCart"/>   -->
+    <!--         <class name = "TestSuite.OrderWithLogin"/>   -->   
+    <!--         <class name = "TestSuite.OrderWithoutLogin"/>   -->
+   <class name = "TestSuite.OrderWithoutLogin"/>  
     </classes>
   </test> <!-- Test -->
  

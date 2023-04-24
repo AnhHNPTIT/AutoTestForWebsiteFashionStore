@@ -9,6 +9,7 @@ import Common.Utilities;
 public class HomeScreen {
 	public static String loginLinkXpath 			= "//*[@class='link-account']";
 	public static String registerLinkXpath 			= "//*[@class='em-register-link']";
+	public static String homeLinkXpath 				= "(//*[text()='Trang chủ'])[2]";
 	public static String contactLinkXpath 			= "//*[text()=' Liên hệ ']";
 	
 	public static String usernameLinkXpath 			= "//a[contains(text(),'" + Constant.BASE_USERNAME + "')]";
@@ -25,6 +26,13 @@ public class HomeScreen {
 	public static String noResultMsgXpath 			= "//p[text()='" + noResultMsg + "']";
 	
 	public static String productLinkXpath 			= "(//div[@class='product-shop-top'])[1]";
+	public static String productLinkXpath2 			= "(//div[@class='product-shop-top'])[2]";
+	
+	public static String msgXpath 					= "//div[@class='swal-text']";
+	public static String addToCartSuccessMsg 		= "Sản phẩm của bạn đã được thêm vào giỏ hàng";
+	public static String continueShoppingBtnXpath 	= "//button[@class='swal-button swal-button--cancel']";
+	public static String totalQtyLbXpath 			= "(//span[@class='em-topcart-qty'])[2]";
+	public static String orderNowBtnXpath 			= "//button[contains(text(),'Gửi đơn hàng ngay!')]";
 
 	public static WebDriver openScreen(String browser) {
 		WebDriver driver = null;
