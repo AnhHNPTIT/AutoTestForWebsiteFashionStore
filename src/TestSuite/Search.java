@@ -15,7 +15,7 @@ import CommonScreen.HomeScreen;
 public class Search extends Initialization {
 	@BeforeClass()
 	public void setUpClass() throws Exception {
-		driver = HomeScreen.openScreenWithoutLoginWithoutLogin(browser);
+		driver = HomeScreen.openScreenWithoutLogin(browser);
 	}
 
 	@BeforeMethod()

@@ -14,7 +14,7 @@
 	<!--         <class name = "TestSuite.AddToCart"/>   -->
     <!--         <class name = "TestSuite.OrderWithLogin"/>   -->   
     <!--         <class name = "TestSuite.OrderWithoutLogin"/>   -->
-   <class name = "TestSuite.OrderWithoutLogin"/>  
+   <class name = "TestSuite.OrderWithLogin"/>  
     </classes>
   </test> <!-- Test -->
  

@@ -11,6 +11,8 @@ public final class Constant {
 	public static String BASE_PHONE 			= "0987654321";
 	public static String BASE_PASSWORD			= "1234567890";
 	public static String BASE_USERNAME 			= "Lê Thị Hương";
+	public static String BASE_ADDRESS 			= "Hà Nội";
+	public static String BASE_NOTE	 			= "Ghi chú";
 	
 	public static String PWD_7_CHARS 			= "1234567";
 	public static String PWD_8_CHARS 			= "12345678";
@@ -18,7 +20,7 @@ public final class Constant {
 	public static String PWD_17_CHARS 			= "12345678901234567";
 
 	// Define timeout
-	public static final double WAIT_INTERVAL = 1.0; 
+	public static final double WAIT_INTERVAL = 1.5; 
 	public static final int WAIT_WINDOW = 10;
 	public static final double WAIT_CLOSE_WINDOW = 2.5;
 	public static final double WAIT_CLOSE_WINDOW_MAX = 3.5;

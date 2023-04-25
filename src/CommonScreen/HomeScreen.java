@@ -45,7 +45,7 @@ public class HomeScreen {
 		return driver;
 	}
 	
-	public static WebDriver openScreenWithoutLoginWithoutLogin(String browser) {
+	public static WebDriver openScreenWithoutLogin(String browser) {
 		WebDriver driver = null;
 		if (!browser.isEmpty()) {
 			driver = Utilities.getDriver(browser);

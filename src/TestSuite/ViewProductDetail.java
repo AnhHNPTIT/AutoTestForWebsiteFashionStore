@@ -17,7 +17,7 @@ import CommonScreen.ProductDetailScreen;
 public class ViewProductDetail extends Initialization {
 	@BeforeClass()
 	public void setUpClass() throws Exception {
-		driver = HomeScreen.openScreenWithoutLoginWithoutLogin(browser);
+		driver = HomeScreen.openScreenWithoutLogin(browser);
 	}
 
 	@BeforeMethod()

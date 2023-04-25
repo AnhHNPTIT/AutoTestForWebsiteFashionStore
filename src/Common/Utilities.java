@@ -199,7 +199,11 @@ public class Utilities {
 		waitForElementClickable(driver, locator, waitClick / 2);
 		while (timeout < waitClick * 1000) {
 			try {
-				driver.findElement(locator).click();
+				WebElement element = driver.findElement(locator);
+				Actions actions = new Actions(driver);
+				actions.moveToElement(element);
+				actions.perform();
+				element.click();
 				break;
 			} catch (Exception e) {
 				printWithTestID(e.toString(), Level.ERROR);

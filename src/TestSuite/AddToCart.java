@@ -18,7 +18,7 @@ import CommonScreen.ProductDetailScreen;
 public class AddToCart extends Initialization {
 	@BeforeClass()
 	public void setUpClass() throws Exception {
-		driver = HomeScreen.openScreenWithoutLoginWithoutLogin(browser);
+		driver = HomeScreen.openScreenWithoutLogin(browser);
 	}
 
 	@BeforeMethod()
@@ -28,6 +28,7 @@ public class AddToCart extends Initialization {
 	
 	@AfterMethod()
 	public void tearDownMethod(Method method) throws Exception {
+		Utilities.captureScreen(driver, method.getName());
 		Utilities.clickObscuredElementToNotVisible(driver, By.xpath(HomeScreen.continueShoppingBtnXpath), By.xpath(HomeScreen.continueShoppingBtnXpath), Constant.WAIT_ELEMENT_NOT_EXIST);
 		Utilities.clickObscuredElement(driver, HomeScreen.homeLinkXpath, HomeScreen.productLinkXpath, Constant.WAIT_ELEMENT_EXIST);
 	}
