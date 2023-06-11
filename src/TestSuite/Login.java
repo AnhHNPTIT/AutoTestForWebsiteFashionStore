@@ -117,12 +117,12 @@ public class Login extends Initialization{
 	
 	@Test()
 	public void ITS_02_18() throws IOException{
-		LoginScreen.login(driver, "0123456789", "12345678", LoginScreen.minPasswordMsg);
+		LoginScreen.login(driver, "0123456789", "12345678", "");
 	}
 	
 	@Test()
 	public void ITS_02_19() throws IOException{
-		LoginScreen.login(driver, "0963852741", "1234567890123456", LoginScreen.minPasswordMsg);
+		LoginScreen.login(driver, "0963852741", "1234567890123456", "");
 	}
 	
 	@Test()
